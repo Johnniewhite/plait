@@ -1,65 +1,45 @@
 
 import React from 'react';
-import { ModalType } from '../App.js';
 
-interface HeroProps {
-  onOpenModal: (type: ModalType) => void;
-}
-
-const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
+const Hero: React.FC = () => {
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center text-center px-4 hero-gradient pt-20">
-      <div className="blur-circle bg-primary -top-20 -left-20"></div>
-      <div className="blur-circle bg-secondary -bottom-20 -right-20"></div>
+    <section className="px-6 md:px-12 pt-8 md:pt-16">
+      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-end gap-8 lg:gap-16">
 
-      <div className="relative z-10 max-w-5xl mx-auto">
-        <div className="inline-flex items-center px-4 py-1.5 mb-8 rounded-full bg-white/5 border border-white/10 backdrop-blur-md">
-          <span className="w-2 h-2 rounded-full bg-primary mr-2 animate-pulse"></span>
-          <span className="text-[10px] uppercase tracking-[0.2em] font-semibold text-slate-300">Waitlist Open</span>
+        {/* Left - Image */}
+        <div className="lg:w-5/12 flex items-end justify-center">
+          <img
+            src="/Beta+Program+Flyer+(1).webp"
+            alt="PLAIT - Join the Waitlist - Beauty Powered by Community"
+            className="w-full max-w-[450px] h-auto block"
+          />
         </div>
 
-        <h1 className="font-display text-5xl md:text-8xl mb-6 leading-[1.1] text-white">
-          Welcome to <span className="italic text-primary">PLAIT</span>
-        </h1>
+        {/* Right content */}
+        <div className="lg:w-7/12 max-w-xl text-left pb-8 lg:pb-16">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.05] mb-6">
+            <span className="text-black">THE </span>
+            <span className="text-primary">SOCIAL<br />HAIRCARE APP</span>
+          </h1>
 
-        <p className="max-w-2xl mx-auto text-lg md:text-xl text-slate-300 font-light mb-3 leading-relaxed">
-          Review, track, and share your favorite styling experiences
-        </p>
+          <p className="text-lg md:text-xl italic text-slate-800 leading-relaxed mb-6">
+            Log your looks, rate your styling experiences, and discover stylists through real reviews from your community
+          </p>
 
-        <p className="max-w-2xl mx-auto text-base md:text-lg text-primary font-medium mb-12 leading-relaxed">
-          Beauty powered by community
-        </p>
+          <p className="text-sm text-slate-600 leading-relaxed mb-3">
+            PLAIT is a community-driven platform that makes sharing beauty care experiences, discovering, and booking effortless
+          </p>
 
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-12">
-          <button
-            onClick={() => onOpenModal(ModalType.USER_WAITLIST)}
-            className="group relative w-full sm:w-auto px-10 py-5 bg-primary hover:bg-opacity-90 text-white rounded-full font-semibold text-sm tracking-widest transition-all shadow-xl shadow-primary/20 flex items-center justify-center uppercase"
+          <p className="text-sm text-slate-600 leading-relaxed mb-8">
+            We put real people's experiences front and center, helping you find stylists and services that truly meet your beauty goals
+          </p>
+
+          <a
+            href="#waitlist"
+            className="inline-block px-8 py-3.5 bg-primary hover:bg-primary/90 text-white rounded-full font-semibold text-xs tracking-widest transition-all uppercase"
           >
-            Join as a User
-            <span className="material-symbols-outlined ml-2 text-xl group-hover:translate-x-1 transition-transform">arrow_forward</span>
-          </button>
-
-          <button
-            onClick={() => onOpenModal(ModalType.STYLIST_WAITLIST)}
-            className="group w-full sm:w-auto px-10 py-5 bg-transparent border border-white/20 hover:border-white/50 text-white rounded-full font-semibold text-sm tracking-widest transition-all backdrop-blur-sm flex items-center justify-center uppercase"
-          >
-            Join as a Stylist
-            <span className="material-symbols-outlined ml-2 text-xl group-hover:translate-x-1 transition-transform">stars</span>
-          </button>
-        </div>
-
-        <div className="flex flex-col items-center">
-          <div className="flex -space-x-3 mb-4">
-            {[1, 2, 3].map((i) => (
-              <img
-                key={i}
-                alt={`User portrait ${i}`}
-                className="w-10 h-10 rounded-full border-2 border-background-dark object-cover"
-                src={`https://picsum.photos/seed/user${i}/100/100`}
-              />
-            ))}
-          </div>
-          <p className="text-xs text-slate-500 font-medium tracking-wide uppercase">Join 2,400+ waiting to PLAIT with us!</p>
+            Learn More
+          </a>
         </div>
       </div>
     </section>

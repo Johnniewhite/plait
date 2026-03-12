@@ -1,14 +1,13 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar.js';
 import Hero from './components/Hero.js';
 import Features from './components/Features.js';
-import Cities from './components/Cities.js';
-import Referral from './components/Referral.js';
+import WaitlistSection from './components/WaitlistSection.js';
 import Footer from './components/Footer.js';
-import Modal from './components/Modal.js';
 import AboutUs from './components/AboutUs.js';
+import Contact from './components/Contact.js';
 
 export enum ModalType {
   USER_WAITLIST = 'USER_WAITLIST',
@@ -19,27 +18,17 @@ export enum ModalType {
 }
 
 const LandingPage: React.FC = () => {
-  const [activeModal, setActiveModal] = useState<ModalType>(ModalType.NONE);
-
-  const openModal = (type: ModalType) => setActiveModal(type);
-  const closeModal = () => setActiveModal(ModalType.NONE);
-
   return (
-    <div className="relative">
+    <div className="bg-white">
       <Navbar />
 
       <main>
-        <Hero onOpenModal={openModal} />
+        <Hero />
         <Features />
-        <Cities />
-        <Referral onOpenModal={openModal} />
+        <WaitlistSection />
       </main>
 
       <Footer />
-
-      {activeModal !== ModalType.NONE && (
-        <Modal type={activeModal} onClose={closeModal} />
-      )}
     </div>
   );
 };
@@ -50,6 +39,7 @@ const App: React.FC = () => {
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/about" element={<AboutUs />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
     </BrowserRouter>
   );
