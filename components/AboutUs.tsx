@@ -13,9 +13,9 @@ const AboutUs: React.FC = () => {
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-12 lg:gap-20">
 
           {/* Left - Text content */}
-          <div className="lg:w-1/2">
+          <div className="lg:w-1/2 -pl-12">
             {/* Who We Are */}
-            <h2 className="text-5xl md:text-7xl font-bold text-primary uppercase leading-[1.05] mb-6">
+            <h2 className="text-5xl md:text-7xl font-bold text-primary uppercase leading-[1.05] tracking-tighter mb-6">
               Who We Are
             </h2>
 

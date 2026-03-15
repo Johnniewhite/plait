@@ -3,16 +3,16 @@
  * Production uses Vercel serverless api/submit.ts.
  */
 import express from "express";
-import { createClient } from "@supabase/supabase-js";
+import { MongoClient } from "mongodb";
 import { readFileSync, existsSync } from "fs";
 import { resolve, dirname } from "path";
 import { fileURLToPath } from "url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
-// Load .env.local into process.env
-function loadEnvLocal() {
-  const path = resolve(__dirname, ".env.local");
+// Load .env and .env.local into process.env
+function loadEnvFile(filename) {
+  const path = resolve(__dirname, filename);
   if (!existsSync(path)) return;
   const content = readFileSync(path, "utf8");
   content.split("\n").forEach((line) => {
@@ -20,80 +20,90 @@ function loadEnvLocal() {
     if (i > 0) {
       const key = line.slice(0, i).trim();
       const value = line.slice(i + 1).trim().replace(/^["']|["']$/g, "");
-      process.env[key] = value;
+      if (!process.env[key]) process.env[key] = value;
     }
   });
 }
-loadEnvLocal();
+loadEnvFile(".env");
+loadEnvFile(".env.local");
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-const supabaseKey =
-  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ||
-  process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY;
-
-if (!supabaseUrl || !supabaseKey) {
-  console.warn(
-    "Missing Supabase env. Set NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY (or NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY) in .env.local"
-  );
+const mongoUri = process.env.MONGO_URI;
+if (!mongoUri) {
+  console.warn("Missing MONGO_URI env variable. Set it in .env or .env.local");
 }
 
-const supabase = supabaseUrl && supabaseKey ? createClient(supabaseUrl, supabaseKey) : null;
-
-const tableMap = {
+const collectionMap = {
   USER_WAITLIST: "user_waitlist",
   STYLIST_WAITLIST: "stylist_waitlist",
   NOMINATE: "nominations",
   CONTACT: "contact_submissions",
 };
 
-/** Convert camelCase keys to snake_case for Supabase column names */
-function toSnakeCase(obj) {
-  const out = {};
-  for (const [k, v] of Object.entries(obj)) {
-    if (v === undefined) continue;
-    const snake = k.replace(/[A-Z]/g, (c) => `_${c.toLowerCase()}`);
-    out[snake] = v;
-  }
-  return out;
+let db = null;
+
+async function connectDB() {
+  if (db) return db;
+  const client = new MongoClient(mongoUri);
+  await client.connect();
+  db = client.db("plait");
+  console.log("Connected to MongoDB");
+  return db;
 }
 
 const app = express();
 app.use(express.json());
 
 app.post("/api/submit", async (req, res) => {
-  if (!supabase) {
-    return res.status(503).json({ error: "Supabase not configured" });
-  }
-  if (req.method !== "POST") {
-    return res.status(405).json({ error: "Method not allowed" });
+  if (!mongoUri) {
+    return res.status(503).json({ error: "MongoDB not configured" });
   }
 
   try {
     const data = req.body || {};
-    if (!data.formType || !(data.formType in tableMap)) {
+    if (!data.formType || !(data.formType in collectionMap)) {
       return res.status(400).json({ error: "Invalid or missing formType" });
     }
 
-    const tableName = tableMap[data.formType];
-    const row = toSnakeCase({
+    const collectionName = collectionMap[data.formType];
+    const database = await connectDB();
+    const collection = database.collection(collectionName);
+
+    const document = {
       ...data,
-      timestamp: new Date().toISOString(),
-    });
+      timestamp: new Date(),
+      created_at: new Date(),
+    };
 
-    const { error } = await supabase.from(tableName).insert([row]);
-
-    if (error) {
-      console.error("Supabase insert error:", error);
-      return res.status(500).json({
-        error: "Server error",
-        details: error.message,
-        code: error.code,
-      });
-    }
+    await collection.insertOne(document);
 
     return res.status(200).json({ success: true });
   } catch (err) {
     console.error("Submission error:", err);
+    return res.status(500).json({
+      error: "Server error",
+      details: err instanceof Error ? err.message : String(err),
+    });
+  }
+});
+
+app.get("/api/admin", async (req, res) => {
+  if (!mongoUri) {
+    return res.status(503).json({ error: "MongoDB not configured" });
+  }
+
+  try {
+    const { formType } = req.query;
+    if (!formType || !(formType in collectionMap)) {
+      return res.status(400).json({ error: "Invalid or missing formType" });
+    }
+
+    const database = await connectDB();
+    const collection = database.collection(collectionMap[formType]);
+    const docs = await collection.find({}).sort({ created_at: -1 }).toArray();
+
+    return res.status(200).json({ data: docs });
+  } catch (err) {
+    console.error("Admin fetch error:", err);
     return res.status(500).json({
       error: "Server error",
       details: err instanceof Error ? err.message : String(err),
