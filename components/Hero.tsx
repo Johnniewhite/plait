@@ -36,7 +36,7 @@ const Hero: React.FC = () => {
 
           <a
             href="#waitlist"
-            className="inline-block px-8 md:px-10 py-3 md:py-4 bg-primary hover:bg-primary/90 text-white rounded-full font-normal text-[15px] md:text-[17px] font-['Epilogue'] tracking-[0.15em] transition-all uppercase"
+            className="inline-block px-8 md:px-10 py-3 md:py-4 bg-primary hover:bg-primary/90 text-white rounded-full font-normal text-[15px] md:text-[17px] font-['Epilogue'] tracking-tighter transition-all uppercase"
           >
             Learn More
           </a>
