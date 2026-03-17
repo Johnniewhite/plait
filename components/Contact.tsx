@@ -149,7 +149,7 @@ const Contact: React.FC = () => {
                 <button
                   type="submit"
                   disabled={status === 'submitting'}
-                  className="px-10 py-6 bg-primary hover:bg-primary/90 disabled:opacity-50 text-white rounded-full font-semibold text-[14px] tracking-widest transition-all uppercase"
+                  className="px-10 py-6 bg-primary hover:bg-primary/90 disabled:opacity-50 text-white rounded-full font-normal text-[14px] font-['Epilogue'] tracking-widest transition-all uppercase"
                 >
                   {status === 'submitting' ? 'Sending...' : 'Send'}
                 </button>

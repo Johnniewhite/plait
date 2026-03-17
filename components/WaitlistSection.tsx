@@ -197,7 +197,7 @@ const WaitlistSection: React.FC = () => {
               <button
                 type="submit"
                 disabled={status === 'submitting'}
-                className="px-8 py-3 bg-primary hover:bg-primary/90 disabled:opacity-50 text-white rounded-full font-semibold text-xs tracking-widest transition-all uppercase"
+                className="px-8 py-3 bg-primary hover:bg-primary/90 disabled:opacity-50 text-white rounded-full font-normal text-xs font-['Epilogue'] tracking-widest transition-all uppercase"
               >
                 {status === 'submitting' ? 'Joining...' : 'Join'}
               </button>
