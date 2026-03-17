@@ -4,11 +4,11 @@ import { Link, NavLink } from 'react-router-dom';
 
 const Navbar: React.FC = () => {
   return (
-    <nav className="w-full px-6 md:px-12 py-12 flex justify-between items-center bg-white">
+    <nav className="w-full px-4 md:px-12 py-6 md:py-12 flex justify-between items-center bg-white">
       <Link to="/" className="flex items-center">
         <span className="logo-text text-2xl md:text-2xl uppercase text-black">Plait</span>
       </Link>
-      <div className="flex items-center gap-8">
+      <div className="flex items-center gap-4 md:gap-8">
         <NavLink
           to="/about"
           className={({ isActive }) =>

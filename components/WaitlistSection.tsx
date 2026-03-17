@@ -56,18 +56,18 @@ const WaitlistSection: React.FC = () => {
   };
 
   return (
-    <section id="waitlist" className="py-16 px-6 md:px-12 bg-white">
-      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-12 lg:gap-20">
+    <section id="waitlist" className="py-10 md:py-16 px-4 md:px-12 bg-white">
+      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-8 lg:gap-20">
 
         {/* Left side */}
-        <div className="lg:w-2/5">
-          <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-black uppercase leading-[1.05] mb-6">
+        <div className="lg:w-2/5 text-primary">
+          <h2 className="text-3xl md:text-6xl lg:text-7xl font-bold tracking-tighter uppercase leading-[1.05] mb-4 md:mb-6">
             Join The<br />Waitlist
           </h2>
-          <p className="text-sm text-slate-600 leading-relaxed mb-3">
+          <p className="text-[15.236px] font-[300] leading-relaxed mb-3">
             Join the PLAIT community and get notified when the app launches!
           </p>
-          <p className="text-sm text-slate-600 leading-relaxed">
+          <p className="text-[15.236px] font-[300] text-primary leading-relaxed">
             The review platform your hair has been waiting for.
           </p>
         </div>
@@ -93,7 +93,7 @@ const WaitlistSection: React.FC = () => {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-xs text-primary mb-1">
-                      First Name <span className="text-slate-400">(required)</span>
+                      First Name <span className="text-primary font-light">(required)</span>
                     </label>
                     <input
                       name="firstName"
@@ -106,7 +106,7 @@ const WaitlistSection: React.FC = () => {
                   </div>
                   <div>
                     <label className="block text-xs text-primary mb-1">
-                      Last Name <span className="text-slate-400">(required)</span>
+                      Last Name <span className="text-primary font-light">(required)</span>
                     </label>
                     <input
                       name="lastName"
@@ -123,7 +123,7 @@ const WaitlistSection: React.FC = () => {
               {/* Email */}
               <div>
                 <label className="block text-xs text-primary mb-1">
-                  Email <span className="text-slate-400">(required)</span>
+                  Email <span className="text-primary font-light">(required)</span>
                 </label>
                 <input
                   name="email"
@@ -138,13 +138,13 @@ const WaitlistSection: React.FC = () => {
               {/* Role */}
               <div>
                 <label className="block text-xs text-primary mb-2">
-                  Interested in joining as? <span className="text-slate-400">(required)</span>
+                  Interested in joining as? <span className="text-primary font-light">(required)</span>
                 </label>
                 <div className="flex gap-6">
                   <label className="flex items-center gap-2 cursor-pointer">
                     <div
                       onClick={() => handleRoleChange('STYLIST')}
-                      className={`w-5 h-5 border-2 rounded flex items-center justify-center transition-colors ${
+                      className={`w-5 h-5 border border-primary/30 rounded flex items-center justify-center transition-colors ${
                         formData.role === 'STYLIST'
                           ? 'border-primary bg-primary'
                           : 'border-slate-300 bg-white'
@@ -161,7 +161,7 @@ const WaitlistSection: React.FC = () => {
                   <label className="flex items-center gap-2 cursor-pointer">
                     <div
                       onClick={() => handleRoleChange('USER')}
-                      className={`w-5 h-5 border-2 rounded flex items-center justify-center transition-colors ${
+                      className={`w-5 h-5 border border-primary/30 rounded flex items-center justify-center transition-colors ${
                         formData.role === 'USER'
                           ? 'border-primary bg-primary'
                           : 'border-slate-300 bg-white'

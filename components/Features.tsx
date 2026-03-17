@@ -22,15 +22,15 @@ const features = [
 
 const Features: React.FC = () => {
   return (
-    <section className="py-16 px-6 md:px-12 bg-white">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+    <section className="py-10 md:py-16 px-4 md:px-12 bg-white">
+      <div className="max-w-7xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-10">
         {features.map((f, i) => (
           <div key={i} className="text-center">
-            <h3 className="text-xl md:text-2xl tracking-tighter font-bold text-black uppercase tracking-wide mb-3">
+            <h3 className="text-base md:text-2xl tracking-tighter font-bold text-black uppercase mb-3">
               {f.title}
             </h3>
             <div className="w-14 h-0.5 bg-primary mx-auto mb-5"></div>
-            <p className="text-sm text-slate-600 leading-relaxed">
+            <p className="text-xs md:text-[15.236px] text-primary font-light leading-relaxed">
               {f.desc}
             </p>
           </div>
