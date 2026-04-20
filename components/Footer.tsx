@@ -8,9 +8,9 @@ const Footer: React.FC = () => {
       <div className="max-w-7xl mx-auto flex flex-col items-center text-center md:flex-row md:justify-between md:items-start md:text-left gap-6 md:gap-0">
         <div>
           <Link to="/" className="block">
-            <span className="logo-text text-3xl md:text-4xl uppercase text-black">Plait</span>
+            <span className="logo-text text-3xl md:text-4xl uppercase text-black">Plaited</span>
           </Link>
-          <p className="text-xs md:text-sm text-slate-500 mt-2">@2026 PLAIT LLC</p>
+          <p className="text-xs md:text-sm text-slate-500 mt-2">@2026 PLAITED LLC</p>
         </div>
 
         <div className="md:text-right">

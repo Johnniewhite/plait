@@ -65,7 +65,7 @@ const WaitlistSection: React.FC = () => {
             Join The<br />Waitlist
           </h2>
           <p className="text-[15.236px] font-[300] leading-relaxed mb-3">
-            Join the PLAIT community and get notified when the app launches!
+            Join the PLAITED community and get notified when the app launches!
           </p>
           <p className="text-[15.236px] font-[300] text-primary leading-relaxed">
             The review platform your hair has been waiting for.

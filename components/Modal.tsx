@@ -52,7 +52,7 @@ const Modal: React.FC<ModalProps> = ({ type, onClose }) => {
       </div>
       <h2 className="font-display text-4xl text-white mb-4">You're on the <span className="italic text-primary">List.</span></h2>
       <p className="text-slate-400 text-sm leading-relaxed mb-10 max-w-xs mx-auto">
-        Thank you for joining the Plait community. We'll reach out as soon as a spot opens up in your city.
+        Thank you for joining the Plaited community. We'll reach out as soon as a spot opens up in your city.
       </p>
       <button 
         onClick={onClose}

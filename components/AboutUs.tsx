@@ -20,7 +20,7 @@ const AboutUs: React.FC = () => {
             </h2>
 
             <p className="text-base text-slate-700 leading-relaxed mb-4">
-              PLAIT was founded by a team of young professionals bonded through a passion for services enabling powerful presentations of cultural identity.
+              PLAITED was founded by a team of young professionals bonded through a passion for services enabling powerful presentations of cultural identity.
             </p>
 
             <p className="text-base text-slate-700 leading-relaxed mb-10 md:mb-20">
@@ -37,11 +37,11 @@ const AboutUs: React.FC = () => {
             </p>
 
             <p className="text-base text-slate-700 leading-relaxed mb-4">
-              The vision of PLAIT was borne out of a simple love for haircare and deep understanding of how personal the beauty care experience is, particularly for people whose needs are commonly underserved.
+              The vision of PLAITED was borne out of a simple love for haircare and deep understanding of how personal the beauty care experience is, particularly for people whose needs are commonly underserved.
             </p>
 
             <p className="text-base text-slate-700 leading-relaxed">
-              We see hair beyond something that can be styled, but as an important marker of identity, culture and community. PLAIT draws on this point through a platform that brings ease, transparency and interconnection to beauty care.
+              We see hair beyond something that can be styled, but as an important marker of identity, culture and community. PLAITED draws on this point through a platform that brings ease, transparency and interconnection to beauty care.
             </p>
           </div>
 
@@ -61,9 +61,9 @@ const AboutUs: React.FC = () => {
         <div className="max-w-7xl mx-auto flex flex-col items-center text-center md:flex-row md:justify-between md:items-start md:text-left gap-6 md:gap-0">
           <div>
             <Link to="/" className="block">
-              <span className="logo-text text-3xl md:text-4xl uppercase text-black">Plait</span>
+              <span className="logo-text text-3xl md:text-4xl uppercase text-black">Plaited</span>
             </Link>
-            <p className="text-xs md:text-sm text-slate-500 mt-2">@2026 PLAIT LLC</p>
+            <p className="text-xs md:text-sm text-slate-500 mt-2">@2026 PLAITED LLC</p>
           </div>
 
           <div className="md:text-right">

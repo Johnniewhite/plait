@@ -9,8 +9,8 @@ const Hero: React.FC = () => {
         {/* Left - Image */}
         <div className="lg:w-6/12 flex items-start justify-center mt-0 lg:-mt-24 order-2 lg:order-1">
           <img
-            src="/Beta+Program+Flyer+(1).webp"
-            alt="PLAIT - Join the Waitlist - Beauty Powered by Community"
+            src="/Iphone_Snip.svg"
+            alt="PLAITED - Join the Waitlist - Beauty Powered by Community"
             className="w-full max-w-[400px] lg:max-w-[650px] h-auto block"
           />
         </div>
@@ -27,7 +27,7 @@ const Hero: React.FC = () => {
           </p>
 
           <p className="text-sm md:text-[15.236px] font-light text-primary leading-relaxed mb-2 md:mb-3">
-            PLAIT is a community-driven platform that makes sharing beauty care experiences, discovering, and booking effortless
+            PLAITED is a community-driven platform that makes sharing beauty care experiences, discovering, and booking effortless
           </p>
 
           <p className="text-sm md:text-[15.236px] font-light text-primary leading-relaxed mb-6 md:mb-8">
