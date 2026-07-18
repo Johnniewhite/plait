@@ -8,7 +8,7 @@ const Footer: React.FC = () => {
       <div className="max-w-7xl mx-auto flex flex-col items-center text-center md:flex-row md:justify-between md:items-start md:text-left gap-6 md:gap-0">
         <div>
           <Link to="/" className="block">
-            <span className="logo-text text-3xl md:text-4xl uppercase text-black">Plaited</span>
+            <img src="/logo.png" alt="Plaited Logo" className="h-12 md:h-16 mb-2" />
           </Link>
           <p className="text-xs md:text-sm text-slate-500 mt-2">@2026 PLAITED LLC</p>
         </div>
