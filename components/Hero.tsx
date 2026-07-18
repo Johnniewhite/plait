@@ -9,7 +9,7 @@ const Hero: React.FC = () => {
         {/* Left - Image */}
         <div className="lg:w-6/12 flex items-start justify-center mt-0 lg:-mt-24 order-2 lg:order-1">
           <img
-            src="/Iphone_Snip.svg"
+            src="/Iphone_Snip.png"
             alt="PLAITED - Join the Waitlist - Beauty Powered by Community"
             className="w-full max-w-[400px] lg:max-w-[650px] h-auto block"
           />

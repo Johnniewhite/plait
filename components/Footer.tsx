@@ -15,7 +15,7 @@ const Footer: React.FC = () => {
 
         <div className="md:text-right">
           <h3 className="text-lg md:text-2xl font-bold text-black uppercase mb-2">Contact</h3>
-          <p className="text-xs md:text-sm text-slate-600">official@plaitapp.com</p>
+          <p className="text-xs md:text-sm text-slate-600">contact@plaitedapp.com</p>
           <p className="text-xs md:text-sm text-slate-600">(347) 259-5477</p>
         </div>
       </div>

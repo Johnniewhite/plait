@@ -8,7 +8,7 @@ const features = [
   },
   {
     title: 'Document & Track',
-    desc: 'Save every style \u2014 how it felt, how long it lasted, and how it held up. Your personal hair diary, beautifully organized',
+    desc: 'Create your own hair diary and document how it felt and how long it lasted over time.',
   },
   {
     title: 'Explore & Share',
@@ -16,7 +16,7 @@ const features = [
   },
   {
     title: 'Booking',
-    desc: 'Search by style category, hair type, and location. No more guessing \u2014 see real results from people with hair just like yours before you book',
+    desc: 'Search by style category, hair type, and location.',
   },
 ];
 
