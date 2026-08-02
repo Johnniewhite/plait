@@ -6,7 +6,11 @@ const Navbar: React.FC = () => {
   return (
     <nav className="w-full px-4 md:px-12 py-6 md:py-12 flex justify-between items-center bg-white">
       <Link to="/" className="flex items-center">
-        <img src="/logo.png" alt="Plaited Logo" className="w-16 h-8 md:w-36 md:h-20 mr-2" />
+        <img
+          src="/logo-black.png"
+          alt="Plaited Logo"
+          className="h-7 md:h-10 w-auto object-contain object-left"
+        />
       </Link>
       <div className="flex items-center gap-4 md:gap-8">
         <NavLink

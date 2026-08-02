@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import Navbar from './Navbar.js';
-import { Link } from 'react-router-dom';
+import Footer from './Footer.js';
 
 type FormStatus = 'idle' | 'submitting' | 'success' | 'error';
 
@@ -63,8 +63,7 @@ const Contact: React.FC = () => {
               Contact Us
             </h1>
 
-            <p className="text-sm font-[300] md:text-base text-primary mb-1">official@plaitapp.com</p>
-            <p className="text-sm font-[300] md:text-base text-primary mb-10 md:mb-20">(347) 259-5477</p>
+            <p className="text-sm font-[300] md:text-base text-primary mb-10 md:mb-20">contact@plaitedapp.com</p>
 
             {status === 'success' ? (
               <div className="py-8">
@@ -168,23 +167,7 @@ const Contact: React.FC = () => {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="px-4 md:px-12 py-10 md:py-16 mt-10 md:mt-20">
-        <div className="max-w-7xl mx-auto flex flex-col items-center text-center md:flex-row md:justify-between md:items-start md:text-left gap-6 md:gap-0">
-          <div>
-            <Link to="/" className="block">
-              <span className="logo-text text-3xl md:text-4xl uppercase text-black">Plaited</span>
-            </Link>
-            <p className="text-xs md:text-sm text-slate-500 mt-2">@2026 PLAITED LLC</p>
-          </div>
-
-          <div className="md:text-right">
-            <h3 className="text-lg md:text-2xl font-bold text-black uppercase mb-2">Contact</h3>
-            <p className="text-xs md:text-sm text-slate-600">official@plaitapp.com</p>
-            <p className="text-xs md:text-sm text-slate-600">(347) 259-5477</p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };

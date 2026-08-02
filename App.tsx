@@ -9,6 +9,7 @@ import Footer from './components/Footer.js';
 import AboutUs from './components/AboutUs.js';
 import Contact from './components/Contact.js';
 import Admin from './components/Admin.js';
+import Legal from './components/Legal.js';
 
 export enum ModalType {
   USER_WAITLIST = 'USER_WAITLIST',
@@ -41,6 +42,8 @@ const App: React.FC = () => {
         <Route path="/" element={<LandingPage />} />
         <Route path="/about" element={<AboutUs />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/legal/terms" element={<Legal kind="terms" />} />
+        <Route path="/legal/privacy" element={<Legal kind="privacy" />} />
         <Route path="/admin" element={<Admin />} />
       </Routes>
     </BrowserRouter>
