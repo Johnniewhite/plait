@@ -2,45 +2,48 @@ import React from 'react';
 import Footer from './Footer.js';
 import Navbar from './Navbar.js';
 
-type LegalPageProps = {
-  kind: 'terms' | 'privacy';
-};
+type LegalPageProps = { kind: 'terms' | 'privacy' };
+type LegalSection = { heading: string; paragraphs: string[] };
+type LegalPage = { title: string; notice?: string; sections: LegalSection[] };
 
-const content = {
+const content: Record<LegalPageProps['kind'], LegalPage> = {
   terms: {
-    title: 'Terms of Service',
-    updated: 'Last updated August 2, 2026',
+    title: 'Terms of Agreement',
+    notice: 'This is a binding agreement between you and PLAITED LLC ("PLAITED," "we," "us," or "our") that governs your access to and use of plaitedapp.com, our mobile application, and related services (collectively, the "Services"). By creating an account, joining the waitlist, or otherwise using the Services, you agree to these Terms of Agreement and our Privacy Policy, which is incorporated by reference. If you do not agree, you may not use the Services.',
     sections: [
-      {
-        heading: 'Using PLAITED',
-        body: 'PLAITED helps people document hair experiences, discover styling work, share reviews, and connect with stylists. Use the platform respectfully and only submit content you have the right to share',
-      },
-      {
-        heading: 'Bookings and Reviews',
-        body: 'Booking details, pricing, availability, and stylist policies may vary by provider. Reviews should reflect real styling experiences and may be moderated if they are abusive, misleading, or unrelated',
-      },
-      {
-        heading: 'Accounts',
-        body: 'You are responsible for keeping your account information accurate and your login credentials secure. Contact us if you need help with access or account deletion',
-      },
+      { heading: '1. Eligibility', paragraphs: ['You must be at least 13 years old to create an account or use the Services. By using the Services, you represent that you meet this requirement and that all information you provide is truthful, accurate, and current.'] },
+      { heading: '2. What PLAITED Is', paragraphs: ['PLAITED is a community-driven platform for discovering, documenting, reviewing, and booking beauty care experiences. The Services are built on content shared by users, including reviews, rankings, hair diary entries, and stylist connections.', 'Clients use PLAITED to explore styles, document their hair journey, rank and review experiences, and connect with stylists. Stylists use PLAITED to showcase their work, build a public profile, and connect with prospective clients. A person may use PLAITED as both a client and a stylist.'] },
+      { heading: '3. Your Account', paragraphs: ['You are responsible for maintaining the confidentiality of your login credentials and for all activity that occurs under your account, whether you log in with email, Google, or Apple. Notify us immediately at the email below if you suspect unauthorized use of your account. We reserve the right to suspend or terminate accounts that provide false information or violate these Terms.'] },
+      { heading: '4. User Content', paragraphs: ['"User Content" means any photos, videos, reviews, rankings, comments, stylist tags, or other material you post, upload, or otherwise make available through the Services. You retain ownership of your User Content.', 'By posting User Content, you grant PLAITED a non-exclusive, worldwide, royalty-free, transferable license to host, store, reproduce, display, and distribute that content solely to operate, promote, and improve the Services. This license ends when you delete the content or your account, except where copies are retained for a limited period for backup, legal, or safety purposes.', 'You are solely responsible for your User Content and its consequences. You represent that you have the rights necessary to post it and that it does not infringe anyone else\'s rights or violate any law.'] },
+      { heading: '5. Reviews, Rankings & Community Content', paragraphs: ['PLAITED\'s reviews, rankings, and community activity reflect the personal opinions and experiences of individual users. They do not represent the views of PLAITED, and PLAITED does not verify, endorse, or guarantee the accuracy of any review, ranking, or rating. We do not routinely screen users or independently verify the qualifications, licensing, or background of stylists listed in our directory. You are responsible for doing your own due diligence before booking a service.', 'Reviews and rankings should reflect genuine experiences. Fake reviews, review manipulation, and content intended to harass, defame, or mislead are prohibited and may result in removal or account termination.'] },
+      { heading: '6. Booking & Stylist Services', paragraphs: ['PLAITED helps connect clients and stylists by facilitating discovery and, where available, booking requests, but we are not a party to the service arrangement between a client and a stylist.', 'PLAITED does not perform, supervise, or guarantee any hair care or beauty service booked or discovered through the platform. Pricing, scheduling, cancellation policies, and service quality are set and controlled by the individual stylist or salon. PLAITED is not responsible for mediating disputes between clients and stylists, including disputes over missed appointments, dissatisfaction, or payment made directly to a stylist outside the platform.', 'If in-app payment processing is introduced, additional payment terms will be presented and will supplement this section.'] },
+      { heading: '7. Prohibited Conduct', paragraphs: ['You agree not to impersonate any person or entity; misrepresent your affiliation with a stylist, salon, or brand; post unlawful, harassing, defamatory, obscene, or infringing content; collect personal information about other users without consent; interfere with the Services through unauthorized automated access or attempts to bypass security; or use the Services for any illegal or prohibited purpose.', 'We may remove content and suspend or terminate accounts that violate this section.'] },
+      { heading: '8. Third-Party Platforms & Integrations', paragraphs: ['The Services may allow you to connect third-party accounts, such as Instagram, TikTok, Facebook, Pinterest, Google, or Apple, to import content, populate your profile, or log in. Your use of those platforms is governed by their own terms. PLAITED is not responsible for their content, availability, or practices.'] },
+      { heading: '9. Intellectual Property', paragraphs: ['The PLAITED name, logo, branding, design, and software, excluding User Content, are owned by PLAITED LLC or our licensors and are protected by intellectual property laws. Nothing in these Terms grants you any right to use PLAITED trademarks or branding without prior written consent.'] },
+      { heading: '10. Disclaimers', paragraphs: ['The Services are provided "as is" and "as available," without warranties of any kind, express or implied, including warranties of merchantability, fitness for a particular purpose, or non-infringement. We do not warrant that the Services will be uninterrupted, error-free, or secure, or that any stylist, salon, or review will meet your expectations.'] },
+      { heading: '11. Limitation of Liability', paragraphs: ['To the fullest extent permitted by law, PLAITED LLC and its founder, employees, and contractors will not be liable for indirect, incidental, special, consequential, or punitive damages arising from your use of the Services, including any service booked or discovered through the platform. Our total liability for any claim arising from these Terms or the Services will not exceed the amount you paid to PLAITED in the 12 months before the claim.'] },
+      { heading: '12. Indemnification', paragraphs: ['You agree to indemnify and hold PLAITED LLC harmless from claims, damages, or expenses, including reasonable attorneys\' fees, arising from your use of the Services, your User Content, or your violation of these Terms.'] },
+      { heading: '13. Termination', paragraphs: ['You may stop using the Services and delete your account at any time. We may suspend or terminate your access at our discretion, with or without notice, if we believe you violated these Terms or created risk or legal exposure for PLAITED or other users. Sections that by their nature should survive termination, including Sections 4(b), 9, 10, 11, and 12, will continue to apply.'] },
+      { heading: '14. Changes to These Terms', paragraphs: ['We may update these Terms from time to time. We will revise the Last Updated date and, for material changes, notify you by email or through the Services. Your continued use after a change takes effect constitutes acceptance of the updated Terms.'] },
+      { heading: '15. Dispute Resolution', paragraphs: ['If a dispute arises between you and PLAITED, contact us first at the email below so we can try to resolve it informally. These Terms are governed by the laws of the state in which PLAITED LLC is organized, without regard to conflict-of-law principles. Formal legal proceedings relating to these Terms or the Services must be brought in a court of competent jurisdiction in that state.'] },
+      { heading: '16. General', paragraphs: ['If any provision of these Terms is found unenforceable, the remaining provisions remain in full effect. Our failure to enforce a provision is not a waiver of our right to do so later. These Terms and the Privacy Policy make up the entire agreement between you and PLAITED regarding the Services.'] },
+      { heading: '17. Contact Us', paragraphs: ['PLAITED LLC\nEmail: official@plaitedapp.com\nWebsite: plaitedapp.com'] },
     ],
   },
   privacy: {
     title: 'Privacy Policy',
-    updated: 'Last updated August 2, 2026',
     sections: [
-      {
-        heading: 'Information We Collect',
-        body: 'We collect the information needed to run PLAITED, including account details, posts, ratings, diary entries, booking details, preferences, and support messages',
-      },
-      {
-        heading: 'How We Use Information',
-        body: 'We use information to provide the app, personalize discovery, support bookings, improve safety, send service updates, and respond to support requests',
-      },
-      {
-        heading: 'Contact',
-        body: 'Questions about privacy or account data can be sent to contact@plaitedapp.com',
-      },
+      { heading: '1. Eligibility', paragraphs: ['You must be at least 13 years old to create a PLAITED account or otherwise use the Services. PLAITED does not knowingly collect personal information from anyone under 13. If we learn that we collected information from a child under 13, we will delete it as quickly as possible. Contact us at the email below if you believe a child under 13 provided personal information.'] },
+      { heading: '2. Information We Collect', paragraphs: ['We collect information you provide directly to us, as well as information collected automatically when you use our Services.', 'Information you provide may include account registration details such as your name, email, user type, and information from Google or Apple used to authenticate your login; waitlist registration details; onboarding survey responses about hair texture, hair type, hair needs and goals, scalp and hair concerns, location preferences, and service preferences; profile information such as preferred name, city, profile picture, and hair diary content; stylist and business information such as business name, service area, specialties, pricing, and portfolio content; stylist connections and booking details; rankings and reviews; social connections; and communications sent to us or to stylists through the platform.', 'Information collected automatically may include IP address, browser type, operating system, device identifiers, pages visited, time spent, GPS-based location when you give permission, and cookies or similar technologies used to maintain session state, understand usage patterns, and improve the Services.', 'Information from third parties may include limited profile information from Google or Apple, content you authorize us to import from connected social platforms, and stylist directory information submitted by users or collected from public sources.'] },
+      { heading: '3. How We Use Your Information', paragraphs: ['We use information to create and manage your account and personalized hair feed; deliver stylist discovery, reviews, booking facilitation, and community feeds; personalize content based on your hair profile, location, and preferences; enable follows and community discovery; notify waitlist members when the app launches; communicate about updates, features, and support; maintain, troubleshoot, diagnose, and improve the Services; ensure safety, prevent fraud, and enforce our Terms; and comply with applicable legal obligations.', 'As of July 18, 2026, PLAITED does not use personal information or usage analytics for advertising, third-party marketing, or purposes beyond operating and improving the Services.'] },
+      { heading: '4. How We Share Your Information', paragraphs: ['We do not sell your personal information.', 'PLAITED has a public, social layer by design. Profile information, hair diary content, rankings, and reviews may be visible to other users depending on your privacy settings. Stylist profiles are publicly visible so clients can discover and evaluate them.', 'If you book or request services through a stylist profile, relevant contact and appointment information may be shared with that stylist. We may share data with vendors who help operate the platform, such as hosting, analytics, and email providers, subject to confidentiality obligations. Connected social platforms receive information according to your authorizations and their own terms.', 'We may disclose information if required by law or legal process, to protect the rights and safety of PLAITED, our users, or the public, or as part of an acquisition or merger. We will notify you of material business-transfer changes where appropriate.'] },
+      { heading: '5. Sensitive Information', paragraphs: ['PLAITED may collect information relating to hair type, scalp conditions, and beauty care needs. This information is used to personalize your experience and connect you with relevant services and community. We treat it with heightened care and do not share it with advertisers or third parties for their own marketing purposes.'] },
+      { heading: '6. Your Choices and Controls', paragraphs: ['You can adjust profile visibility through account settings, disable GPS-based location sharing through your device settings, remove friends, block or mute users, and disconnect linked social media accounts. You can manage or revoke PLAITED access through Google or Apple account settings. Waitlist members may unsubscribe using the link in any email. You may request deletion of your account and associated data by contacting official@plaitedapp.com.'] },
+      { heading: '7. Data Retention', paragraphs: ['We retain personal information for as long as your account is active or as needed to provide the Services. If you delete your account, we will delete or anonymize your data within 30 days unless retention is required by law or for legitimate business purposes such as dispute resolution or fraud prevention.'] },
+      { heading: '8. Security', paragraphs: ['We implement reasonable technical and organizational measures to protect information against unauthorized access, loss, or disclosure. Use a strong, unique password and contact us promptly if you suspect unauthorized access.'] },
+      { heading: '9. Third-Party Links and Platforms', paragraphs: ['The Services may contain links to third-party websites, booking platforms, and social media pages. This Privacy Policy does not apply to those services. Review the privacy policies of third-party platforms you connect through PLAITED.'] },
+      { heading: '10. Changes to This Policy', paragraphs: ['We may update this Privacy Policy to reflect changes in our practices or legal requirements. We will revise the Last Updated date and, where appropriate, notify you by email or through the Services. Continued use after an update constitutes acceptance of the revised policy.'] },
+      { heading: '11. Contact Us', paragraphs: ['PLAITED LLC\nEmail: official@plaitedapp.com\nWebsite: plaitedapp.com'] },
     ],
   },
 };
@@ -52,17 +55,16 @@ const Legal: React.FC<LegalPageProps> = ({ kind }) => {
       <Navbar />
       <main className="px-4 md:px-12 py-8 md:py-20">
         <div className="max-w-3xl mx-auto">
-          <p className="text-sm text-primary font-light mb-3">{page.updated}</p>
-          <h1 className="text-4xl md:text-7xl font-bold text-black tracking-tighter uppercase leading-[1.05] mb-10">
-            {page.title}
-          </h1>
+          <p className="text-sm text-primary font-light mb-3">Last updated July 18, 2026</p>
+          <h1 className="text-4xl md:text-7xl font-bold text-black tracking-tighter uppercase leading-[1.05] mb-10">{page.title}</h1>
+          {page.notice && <p className="text-base text-slate-700 leading-relaxed mb-8">{page.notice}</p>}
           <div className="space-y-8">
             {page.sections.map((section) => (
               <section key={section.heading}>
-                <h2 className="text-xl md:text-2xl font-bold text-primary uppercase mb-3">
-                  {section.heading}
-                </h2>
-                <p className="text-base text-slate-700 leading-relaxed">{section.body}</p>
+                <h2 className="text-xl md:text-2xl font-bold text-primary uppercase mb-3">{section.heading}</h2>
+                <div className="space-y-3">
+                  {section.paragraphs.map((paragraph) => <p key={paragraph} className="text-base text-slate-700 leading-relaxed whitespace-pre-line">{paragraph}</p>)}
+                </div>
               </section>
             ))}
           </div>
